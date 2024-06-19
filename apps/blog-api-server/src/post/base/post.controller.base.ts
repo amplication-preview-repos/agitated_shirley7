@@ -54,6 +54,7 @@ export class PostControllerBase {
           },
         },
 
+        category: true,
         content: true,
         createdAt: true,
         id: true,
@@ -67,6 +68,7 @@ export class PostControllerBase {
 
         title: true,
         updatedAt: true,
+        views: true,
       },
     });
   }
@@ -85,6 +87,7 @@ export class PostControllerBase {
           },
         },
 
+        category: true,
         content: true,
         createdAt: true,
         id: true,
@@ -98,6 +101,7 @@ export class PostControllerBase {
 
         title: true,
         updatedAt: true,
+        views: true,
       },
     });
   }
@@ -117,6 +121,7 @@ export class PostControllerBase {
           },
         },
 
+        category: true,
         content: true,
         createdAt: true,
         id: true,
@@ -130,6 +135,7 @@ export class PostControllerBase {
 
         title: true,
         updatedAt: true,
+        views: true,
       },
     });
     if (result === null) {
@@ -172,6 +178,7 @@ export class PostControllerBase {
             },
           },
 
+          category: true,
           content: true,
           createdAt: true,
           id: true,
@@ -185,6 +192,7 @@ export class PostControllerBase {
 
           title: true,
           updatedAt: true,
+          views: true,
         },
       });
     } catch (error) {
@@ -213,6 +221,7 @@ export class PostControllerBase {
             },
           },
 
+          category: true,
           content: true,
           createdAt: true,
           id: true,
@@ -226,6 +235,7 @@ export class PostControllerBase {
 
           title: true,
           updatedAt: true,
+          views: true,
         },
       });
     } catch (error) {
@@ -324,5 +334,73 @@ export class PostControllerBase {
       data,
       select: { id: true },
     });
+  }
+
+  @common.Post("/:id/category")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async AddCategoryToPost(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.AddCategoryToPost(body);
+  }
+
+  @common.Get("/:id/get-posts-by-category")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetPostsByCategory(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.GetPostsByCategory(body);
+  }
+
+  @common.Get("/posts/top-views")
+  @swagger.ApiOkResponse({
+    type: PostFindManyArgs,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetTopPostsByViews(
+    @common.Body()
+    body: string
+  ): Promise<PostFindManyArgs[]> {
+    return this.service.GetTopPostsByViews(body);
+  }
+
+  @common.Post("/:id/increment-views")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async IncrementPostViews(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.IncrementPostViews(body);
   }
 }

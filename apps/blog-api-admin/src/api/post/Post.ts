@@ -4,6 +4,7 @@ import { Tag } from "../tag/Tag";
 
 export type Post = {
   author?: Author | null;
+  category: string | null;
   comments?: Array<Comment>;
   content: string | null;
   createdAt: Date;
@@ -12,4 +13,5 @@ export type Post = {
   tag?: Tag | null;
   title: string | null;
   updatedAt: Date;
+  views: number | null;
 };

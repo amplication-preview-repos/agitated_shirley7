@@ -6,10 +6,11 @@ import {
   EditProps,
   ReferenceInput,
   SelectInput,
+  TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
-  TextInput,
   BooleanInput,
+  NumberInput,
 } from "react-admin";
 
 import { AuthorTitle } from "../author/AuthorTitle";
@@ -23,6 +24,7 @@ export const PostEdit = (props: EditProps): React.ReactElement => {
         <ReferenceInput source="author.id" reference="Author" label="author">
           <SelectInput optionText={AuthorTitle} />
         </ReferenceInput>
+        <TextInput label="category" source="category" />
         <ReferenceArrayInput
           source="comments"
           reference="Comment"
@@ -37,6 +39,7 @@ export const PostEdit = (props: EditProps): React.ReactElement => {
           <SelectInput optionText={TagTitle} />
         </ReferenceInput>
         <TextInput label="title" source="title" />
+        <NumberInput step={1} label="views" source="views" />
       </SimpleForm>
     </Edit>
   );

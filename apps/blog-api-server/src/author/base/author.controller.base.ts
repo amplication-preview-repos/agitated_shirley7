@@ -247,6 +247,7 @@ export class AuthorControllerBase {
           },
         },
 
+        category: true,
         content: true,
         createdAt: true,
         id: true,
@@ -260,6 +261,7 @@ export class AuthorControllerBase {
 
         title: true,
         updatedAt: true,
+        views: true,
       },
     });
     if (results === null) {

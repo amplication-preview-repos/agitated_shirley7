@@ -18,38 +18,46 @@ import { PostService } from "../post.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  category: "exampleCategory",
   content: "exampleContent",
   createdAt: new Date(),
   id: "exampleId",
   published: "true",
   title: "exampleTitle",
   updatedAt: new Date(),
+  views: 42,
 };
 const CREATE_RESULT = {
+  category: "exampleCategory",
   content: "exampleContent",
   createdAt: new Date(),
   id: "exampleId",
   published: "true",
   title: "exampleTitle",
   updatedAt: new Date(),
+  views: 42,
 };
 const FIND_MANY_RESULT = [
   {
+    category: "exampleCategory",
     content: "exampleContent",
     createdAt: new Date(),
     id: "exampleId",
     published: "true",
     title: "exampleTitle",
     updatedAt: new Date(),
+    views: 42,
   },
 ];
 const FIND_ONE_RESULT = {
+  category: "exampleCategory",
   content: "exampleContent",
   createdAt: new Date(),
   id: "exampleId",
   published: "true",
   title: "exampleTitle",
   updatedAt: new Date(),
+  views: 42,
 };
 
 const service = {

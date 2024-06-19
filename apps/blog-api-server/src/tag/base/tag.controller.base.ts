@@ -149,6 +149,7 @@ export class TagControllerBase {
           },
         },
 
+        category: true,
         content: true,
         createdAt: true,
         id: true,
@@ -162,6 +163,7 @@ export class TagControllerBase {
 
         title: true,
         updatedAt: true,
+        views: true,
       },
     });
     if (results === null) {

@@ -19,6 +19,8 @@ import {
   Tag as PrismaTag,
 } from "@prisma/client";
 
+import { PostFindManyArgs } from "./PostFindManyArgs";
+
 export class PostServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
 
@@ -67,5 +69,17 @@ export class PostServiceBase {
         where: { id: parentId },
       })
       .tag();
+  }
+  async AddCategoryToPost(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
+  async GetPostsByCategory(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
+  async GetTopPostsByViews(args: string): Promise<PostFindManyArgs[]> {
+    throw new Error("Not implemented");
+  }
+  async IncrementPostViews(args: string): Promise<string> {
+    throw new Error("Not implemented");
   }
 }

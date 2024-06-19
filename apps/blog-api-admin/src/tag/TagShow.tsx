@@ -32,6 +32,7 @@ export const TagShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={AUTHOR_TITLE_FIELD} />
             </ReferenceField>
+            <TextField label="category" source="category" />
             <TextField label="content" source="content" />
             <DateField source="createdAt" label="Created At" />
             <TextField label="ID" source="id" />
@@ -41,6 +42,7 @@ export const TagShow = (props: ShowProps): React.ReactElement => {
             </ReferenceField>
             <TextField label="title" source="title" />
             <DateField source="updatedAt" label="Updated At" />
+            <TextField label="views" source="views" />
           </Datagrid>
         </ReferenceManyField>
       </SimpleShowLayout>

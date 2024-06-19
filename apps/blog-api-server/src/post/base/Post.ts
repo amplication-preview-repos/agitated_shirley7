@@ -18,6 +18,7 @@ import {
   IsString,
   IsDate,
   IsBoolean,
+  IsInt,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { Comment } from "../../comment/base/Comment";
@@ -33,6 +34,17 @@ class Post {
   @Type(() => Author)
   @IsOptional()
   author?: Author | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  category!: string | null;
 
   @ApiProperty({
     required: false,
@@ -108,6 +120,17 @@ class Post {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  views!: number | null;
 }
 
 export { Post as Post };

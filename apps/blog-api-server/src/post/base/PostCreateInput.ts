@@ -17,6 +17,7 @@ import {
   IsOptional,
   IsString,
   IsBoolean,
+  IsInt,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { CommentCreateNestedManyWithoutPostsInput } from "./CommentCreateNestedManyWithoutPostsInput";
@@ -35,6 +36,17 @@ class PostCreateInput {
     nullable: true,
   })
   author?: AuthorWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  category?: string | null;
 
   @ApiProperty({
     required: false,
@@ -92,6 +104,17 @@ class PostCreateInput {
     nullable: true,
   })
   title?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  views?: number | null;
 }
 
 export { PostCreateInput as PostCreateInput };

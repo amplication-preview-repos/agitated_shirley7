@@ -158,4 +158,36 @@ export class PostResolverBase {
     }
     return result;
   }
+
+  @graphql.Mutation(() => String)
+  async AddCategoryToPost(
+    @graphql.Args()
+    args: string
+  ): Promise<string> {
+    return this.service.AddCategoryToPost(args);
+  }
+
+  @graphql.Query(() => String)
+  async GetPostsByCategory(
+    @graphql.Args()
+    args: string
+  ): Promise<string> {
+    return this.service.GetPostsByCategory(args);
+  }
+
+  @graphql.Query(() => [PostFindManyArgs])
+  async GetTopPostsByViews(
+    @graphql.Args()
+    args: string
+  ): Promise<PostFindManyArgs[]> {
+    return this.service.GetTopPostsByViews(args);
+  }
+
+  @graphql.Mutation(() => String)
+  async IncrementPostViews(
+    @graphql.Args()
+    args: string
+  ): Promise<string> {
+    return this.service.IncrementPostViews(args);
+  }
 }

@@ -10,6 +10,7 @@ generator client {
 model Post {
   author    Author?   @relation(fields: [authorId], references: [id])
   authorId  String?
+  category  String?
   comments  Comment[]
   content   String?
   createdAt DateTime  @default(now())
@@ -19,6 +20,7 @@ model Post {
   tagId     String?
   title     String?
   updatedAt DateTime  @updatedAt
+  views     Int?
 }
 
 model Author {

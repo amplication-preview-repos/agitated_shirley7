@@ -14,11 +14,12 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AuthorWhereUniqueInput } from "../../author/base/AuthorWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { CommentListRelationFilter } from "../../comment/base/CommentListRelationFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { CommentListRelationFilter } from "../../comment/base/CommentListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { TagWhereUniqueInput } from "../../tag/base/TagWhereUniqueInput";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
 
 @InputType()
 class PostWhereInput {
@@ -33,6 +34,17 @@ class PostWhereInput {
     nullable: true,
   })
   author?: AuthorWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  category?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -101,6 +113,17 @@ class PostWhereInput {
     nullable: true,
   })
   title?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: IntNullableFilter,
+  })
+  @Type(() => IntNullableFilter)
+  @IsOptional()
+  @Field(() => IntNullableFilter, {
+    nullable: true,
+  })
+  views?: IntNullableFilter;
 }
 
 export { PostWhereInput as PostWhereInput };

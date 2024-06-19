@@ -2,6 +2,7 @@ import { SortOrder } from "../../util/SortOrder";
 
 export type PostOrderByInput = {
   authorId?: SortOrder;
+  category?: SortOrder;
   content?: SortOrder;
   createdAt?: SortOrder;
   id?: SortOrder;
@@ -9,4 +10,5 @@ export type PostOrderByInput = {
   tagId?: SortOrder;
   title?: SortOrder;
   updatedAt?: SortOrder;
+  views?: SortOrder;
 };
